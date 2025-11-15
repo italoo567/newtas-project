@@ -14,6 +14,12 @@ function AuthHandler({ children }: { children: React.ReactNode }) {
 
     const handleLogin = async () => {
       try {
+        console.log('🔐 [Privy AuthHandler] User logged in:', { userId: user.id, hasLinkedWallet: !!user.wallet, email: user.email?.address });
+        
+        // For email users, check if an embedded wallet exists; if not, they may need to link one
+        const hasEmbeddedWallet = user.linkedAccounts?.some((acc: any) => acc.type === 'embedded_wallet');
+        console.log('🔐 [Privy AuthHandler] Embedded wallet linked:', hasEmbeddedWallet);
+
         // Get Privy user ID (primary identifier)
         const privyId = user?.id;
         // Get wallet address if available (wallet login or embedded wallet)
@@ -95,6 +101,7 @@ function AuthHandler({ children }: { children: React.ReactNode }) {
 }
 
 export function AppPrivyProvider({ children }: { children: React.ReactNode }) {
+  console.log('🔐 PrivyProvider initializing with appId:', import.meta.env.VITE_PRIVY_APP_ID);
 
   return (
     <PrivyProvider

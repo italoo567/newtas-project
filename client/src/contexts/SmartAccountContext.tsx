@@ -9,7 +9,7 @@ import { entryPoint07Address } from 'viem/account-abstraction';
 import { createPimlicoClient } from 'permissionless/clients/pimlico';
 
 const ENTRYPOINT_ADDRESS_V07 = entryPoint07Address;
-const WALLET_READY_TIMEOUT = 25000; // 25 seconds
+const WALLET_READY_TIMEOUT = 60000; // 60 seconds (extended for debugging)
 
 type SmartAccountStatus = 'idle' | 'waiting_for_wallet' | 'initializing' | 'ready' | 'error';
 
@@ -86,6 +86,16 @@ export function SmartAccountProvider({ children }: SmartAccountProviderProps) {
         reject(timeoutError);
         clearWalletReadinessWatcher();
       }, WALLET_READY_TIMEOUT);
+    });
+
+    // Avoid unhandled promise rejection if nobody awaits this promise
+    // (some code paths create the watcher but don't await it). Swallow
+    // the rejection here because we already update UI state above.
+    // Keeping a catch prevents Vite's runtime overlay from showing an
+    // unhandled rejection stack trace in the browser.
+    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+    walletReadyPromiseRef.current?.catch(() => {
+      /* intentionally swallow - UI already updated */
     });
 
     // Return cleanup function
@@ -255,6 +265,8 @@ export function SmartAccountProvider({ children }: SmartAccountProviderProps) {
 
   // Bootstrap wallet readiness watcher
   useEffect(() => {
+    console.log('🔎 Privy state check (effect):', { ready, authenticated, walletsLength: wallets?.length, wallets });
+
     if (!ready || !authenticated) {
       clearWalletReadinessWatcher();
       setSmartAccountStatus('idle');
@@ -262,6 +274,8 @@ export function SmartAccountProvider({ children }: SmartAccountProviderProps) {
     }
 
     const hasPrivyWallet = wallets?.some((wallet) => wallet.walletClientType === 'privy');
+
+    console.log('🔎 Privy wallets present?', { hasPrivyWallet, wallets });
 
     if (hasPrivyWallet) {
       if (walletReadyResolveRef.current) {

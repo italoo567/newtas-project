@@ -4,7 +4,7 @@ import dotenv from 'dotenv';
 import path from 'path';
 
 // Always load base .env if present
-dotenv.config({ path: path.resolve(process.cwd(), '.env') });
+const result = dotenv.config({ path: path.resolve(process.cwd(), '.env') });
 
 // If running in development, also load .env.development to override values
 if (process.env.NODE_ENV === 'development') {
@@ -18,6 +18,11 @@ console.log('🔍 Environment check:', {
   SUPABASE_SERVICE_KEY: !!process.env.VITE_SUPABASE_SERVICE_ROLE_KEY,
   DATABASE_URL: !!process.env.DATABASE_URL,
 });
+
+if (!process.env.DATABASE_URL) {
+  console.error('ERROR: DATABASE_URL not found in environment');
+  process.exit(1);
+}
 
 // Now import the server
 import './index';

@@ -29,8 +29,10 @@ if (!process.env.VITE_SUPABASE_URL || !process.env.VITE_SUPABASE_ANON_KEY) {
 
 import express, { type Request, Response, NextFunction } from "express";
 import session from "express-session";
-import { registerRoutes } from "./routes";
-import { storage } from "./supabase-storage";
+// Delay import of registerRoutes until after dotenv is loaded
+// import { registerRoutes } from "./routes";
+// Delay import of storage which depends on db
+// import { storage } from "./supabase-storage";
 import { createE1XPRouter } from './routes/e1xp';
 // import { autoMigrateOnStartup } from "./migrate-old-data"; // Disabled - uses direct DB connection
 import { setupVite, serveStatic, log } from "./vite";
@@ -95,6 +97,9 @@ app.use((req, res, next) => {
 });
 
 (async () => {
+  // Now import modules that depend on db after dotenv has loaded
+  const { registerRoutes } = await import("./routes");
+  const { storage } = await import("./supabase-storage");
   const server = await registerRoutes(app);
 
   // Initialize Socket.io

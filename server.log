@@ -1,22 +1,32 @@
+nohup: ignoring input
 
 > rest-express@1.0.0 dev
 > NODE_ENV=development tsx server/bootstrap.ts
 
-[dotenv@17.2.3] injecting env (33) from .env -- tip: ⚙️  write to custom object with { processEnv: myObject }
-[dotenv@17.2.3] injecting env (0) from .env.development -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+[dotenv@17.2.3] injecting env (36) from .env -- tip: 🔑 add access controls to secrets: https://dotenvx.com/ops
+[dotenv@17.2.3] injecting env (0) from .env.development -- tip: ⚙️  suppress all logs with { quiet: true }
+[dotenv@17.2.3] injecting env (0) from .env -- tip: ⚙️  enable debug logging with { debug: true }
+[dotenv@17.2.3] injecting env (0) from .env.development -- tip: ⚙️  override existing env vars with { override: true }
+🔍 Environment check: {
+  SUPABASE_URL: true,
+  SUPABASE_ANON_KEY: true,
+  SUPABASE_SERVICE_KEY: true,
+  DATABASE_URL: true
+}
 🔌 Connecting to Supabase: https://hgwhbdlejogerdghkxac.supabase.co
+🔑 Service key loaded: Yes (eyJhbGciOiJIUzI1NiIs...)
+🔑 Service key length: 219
+🔑 Service key starts with eyJ: true
+📋 Env check: { url: true, key: true, keyLength: 219 }
 ✅ Privy authentication middleware initialized
-[dotenv@17.2.3] injecting env (0) from .env -- tip: 🔐 encrypt with Dotenvx: https://dotenvx.com
-[dotenv@17.2.3] injecting env (0) from .env.development -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
 ✅ Socket.io server initialized
-Telegram bot polling started successfully
-Telegram bot initialized successfully
+TELEGRAM_BOT_TOKEN not set, Telegram bot disabled
 ✅ Telegram bot initialized and marked as global
 ✅ Trending notifications service scheduled (runs every 2 hours)
 ⏰ Starting activity tracker cron job with schedule: 0 * * * *
 ✅ Activity tracker cron job started successfully
-7:02:56 PM [express] Activity tracker cron started with schedule: 0 * * * *
-7:02:56 PM [express] serving on port 5000
+12:42:30 PM [express] Activity tracker cron started with schedule: 0 * * * *
+12:42:30 PM [express] serving on port 5000
 🔔 Starting notification cron jobs...
 ✅ Started 8 notification cron jobs
 ✅ Reward reminder cron job scheduled (daily at 10 AM)
@@ -25,30 +35,1324 @@ Telegram bot initialized successfully
 ⚠️  Registry service not configured. Cron job will not start.
    Set REGISTRY_CONTRACT_ADDRESS and PLATFORM_WALLET_PRIVATE_KEY to enable on-chain registration.
 Error in trending notifications: connect ENETUNREACH 2600:1f16:1cd0:3322:3e1c:b085:87a9:8497:6543 - Local (:::0)
+12:42:48 PM [express] GET /api/projects/featured 200 in 32ms
 
 A PostCSS plugin did not pass the `from` option to `postcss.parse`. This may cause imported assets to be incorrectly transformed. If you've recently added a PostCSS plugin that raised this warning, please contact the package author to fix the issue.
-⚠️ Detected multiple bot instances, stopping this one...
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
+12:46:03 PM [express] GET /api/coins/pinned 200 in 232ms :: [{"id":"28c08507-df65-4f31-970e-d1b99e2a9…
+12:46:03 PM [express] GET /api/e1xp/notifications 200 in 595ms :: [{"id":"c4c24fcf-6229-4660-ac34-c0e…
+✅ Socket connected: y58laquP12fVJYSyAAAC
+✅ Socket connected: 0Ms24L-3xx5a6THtAAAD
+12:46:04 PM [express] GET /api/creators 200 in 1456ms :: [{"id":"26c160b6-a3f1-4cad-962c-cefa8ccc8402…
+✅ Socket connected: Gxtvfmywl0I6kfF6AAAF
+✅ User did:privy:cmi09rt1l022ck10c39y36igv authenticated with socket Gxtvfmywl0I6kfF6AAAF
+✅ User did:privy:cmi09rt1l022ck10c39y36igv authenticated with socket Gxtvfmywl0I6kfF6AAAF
+✅ User did:privy:cmi09rt1l022ck10c39y36igv authenticated with socket Gxtvfmywl0I6kfF6AAAF
+  ↳ Also joined room: email_did:privy:cmi09rt1l022ck10c39y36igv
+  ↳ Also joined room: 26c160b6-a3f1-4cad-962c-cefa8ccc8402
+  ↳ Also joined room: email_undefined
+  ↳ Also joined room: email_did:privy:cmi09rt1l022ck10c39y36igv
+  ↳ Also joined room: 26c160b6-a3f1-4cad-962c-cefa8ccc8402
+  ↳ Also joined room: email_undefined
+  ↳ Also joined room: email_did:privy:cmi09rt1l022ck10c39y36igv
+  ↳ Also joined room: 26c160b6-a3f1-4cad-962c-cefa8ccc8402
+  ↳ Also joined room: email_undefined
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+12:46:38 PM [express] GET /api/messages/unread-count 200 in 3ms :: {"count":0}
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+12:46:38 PM [express] GET /api/messages/unread-count 304 in 1ms :: {"count":0}
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+12:47:07 PM [express] GET /api/messages/unread-count 200 in 2ms :: {"count":0}
+12:47:14 PM [express] GET /api/e1xp/notifications 304 in 294ms :: [{"id":"c4c24fcf-6229-4660-ac34-c0e…
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+12:47:33 PM [express] GET /api/messages/unread-count 304 in 1ms :: {"count":0}
+12:47:35 PM [express] GET /api/e1xp/notifications 200 in 309ms :: [{"id":"c4c24fcf-6229-4660-ac34-c0e…
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+12:48:04 PM [express] GET /api/messages/unread-count 304 in 1ms :: {"count":0}
+12:48:08 PM [vite] hmr update /src/contexts/SmartAccountContext.tsx, /src/index.css?v=lTHFN4GaustYa96rTCJya
+12:48:08 PM [vite] hmr invalidate /src/contexts/SmartAccountContext.tsx Could not Fast Refresh ("useSmartAccount" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+12:48:08 PM [vite] hmr update /src/lib/privy-provider.tsx, /src/index.css?v=lTHFN4GaustYa96rTCJya, /src/pages/profile.tsx, /src/components/withdraw-earnings-modal.tsx, /src/components/content-preview.tsx
+12:48:10 PM [express] GET /api/projects/featured 200 in 4ms
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+12:48:11 PM [express] GET /api/messages/unread-count 304 in 2ms :: {"count":0}
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+12:48:42 PM [express] GET /api/messages/unread-count 200 in 2ms :: {"count":0}
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+12:48:42 PM [express] GET /api/messages/unread-count 304 in 0ms :: {"count":0}
+[Creator Sync] Syncing creator: {
+  privyId: 'did:privy:cmi09rt1l022ck10c39y36igv',
+  address: null,
+  email: 'discodjclass@atomicmail.io'
+}
+[Creator Sync] Found existing creator by privyId: 26c160b6-a3f1-4cad-962c-cefa8ccc8402
+12:48:57 PM [express] GET /api/coins 200 in 209ms :: [{"id":"02f44864-01d0-4c98-8f2b-e230db4e3bbc","n…
+[Creator Sync] Updated creator with new address/email
+12:48:57 PM [express] POST /api/creators/sync 200 in 339ms :: {"id":"26c160b6-a3f1-4cad-962c-cefa8ccc…
+12:48:57 PM [express] GET /api/follows/followers/email_did:privy:cmi09rt1l022ck10c39y36igv 200 in 375…
+12:48:57 PM [express] GET /api/creators/privy/did:privy:cmi09rt1l022ck10c39y36igv 200 in 140ms :: {"i…
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+12:49:13 PM [express] GET /api/messages/unread-count 200 in 1ms :: {"count":0}
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+12:49:13 PM [express] GET /api/messages/unread-count 200 in 0ms :: {"count":0}
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+12:49:14 PM [express] GET /api/messages/unread-count 200 in 1ms :: {"count":0}
+12:49:26 PM [express] GET /api/coins/pinned 200 in 155ms :: [{"id":"28c08507-df65-4f31-970e-d1b99e2a9…
+12:49:34 PM [express] GET /api/comments/coin/-1 200 in 152ms :: []
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+12:49:42 PM [express] GET /api/messages/unread-count 200 in 2ms :: {"count":0}
+12:49:47 PM [express] GET /api/e1xp/notifications 304 in 294ms :: [{"id":"c4c24fcf-6229-4660-ac34-c0e…
+12:49:58 PM [express] GET /api/e1xp/notifications 200 in 326ms :: [{"id":"c4c24fcf-6229-4660-ac34-c0e…
+12:50:11 PM [express] GET /api/e1xp/notifications 304 in 278ms :: [{"id":"c4c24fcf-6229-4660-ac34-c0e…
+12:50:36 PM [express] GET /api/e1xp/notifications 200 in 301ms :: [{"id":"c4c24fcf-6229-4660-ac34-c0e…
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+12:50:42 PM [express] GET /api/messages/unread-count 304 in 1ms :: {"count":0}
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+12:50:43 PM [express] GET /api/messages/unread-count 304 in 4ms :: {"count":0}
+12:50:47 PM [express] GET /api/e1xp/notifications 304 in 316ms :: [{"id":"c4c24fcf-6229-4660-ac34-c0e…
+12:51:22 PM [express] GET /api/e1xp/notifications 304 in 298ms :: [{"id":"c4c24fcf-6229-4660-ac34-c0e…
+✅ User did:privy:cmi09rt1l022ck10c39y36igv disconnected
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+12:51:41 PM [express] GET /api/messages/unread-count 304 in 2ms :: {"count":0}
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+12:51:41 PM [express] GET /api/messages/unread-count 304 in 1ms :: {"count":0}
+12:51:54 PM [vite] hmr update /src/contexts/SmartAccountContext.tsx, /src/index.css?v=lTHFN4GaustYa96rTCJya
+12:51:55 PM [vite] hmr invalidate /src/contexts/SmartAccountContext.tsx Could not Fast Refresh ("useSmartAccount" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+12:51:55 PM [vite] hmr update /src/lib/privy-provider.tsx, /src/index.css?v=lTHFN4GaustYa96rTCJya, /src/pages/profile.tsx, /src/components/withdraw-earnings-modal.tsx, /src/components/content-preview.tsx
+✅ Socket connected: LWjt9D8HlzMznHB9AAAH
+✅ User did:privy:cmi09rt1l022ck10c39y36igv authenticated with socket LWjt9D8HlzMznHB9AAAH
+✅ User did:privy:cmi09rt1l022ck10c39y36igv authenticated with socket LWjt9D8HlzMznHB9AAAH
+  ↳ Also joined room: email_did:privy:cmi09rt1l022ck10c39y36igv
+  ↳ Also joined room: 26c160b6-a3f1-4cad-962c-cefa8ccc8402
+  ↳ Also joined room: email_undefined
+  ↳ Also joined room: email_did:privy:cmi09rt1l022ck10c39y36igv
+  ↳ Also joined room: 26c160b6-a3f1-4cad-962c-cefa8ccc8402
+  ↳ Also joined room: email_undefined
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+12:51:57 PM [express] GET /api/messages/unread-count 304 in 2ms :: {"count":0}
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+12:51:57 PM [express] GET /api/messages/unread-count 304 in 1ms :: {"count":0}
+✅ Socket connected: JFaxJMPJEGfZYgLQAAAJ
+✅ User did:privy:cmi09rt1l022ck10c39y36igv authenticated with socket LWjt9D8HlzMznHB9AAAH
+  ↳ Also joined room: email_did:privy:cmi09rt1l022ck10c39y36igv
+  ↳ Also joined room: 26c160b6-a3f1-4cad-962c-cefa8ccc8402
+  ↳ Also joined room: email_undefined
+12:52:25 PM [vite] hmr update /src/lib/privy-provider.tsx, /src/index.css?v=lTHFN4GaustYa96rTCJya
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+12:52:27 PM [express] GET /api/messages/unread-count 200 in 3ms :: {"count":0}
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+12:52:27 PM [express] GET /api/messages/unread-count 304 in 0ms :: {"count":0}
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+12:52:27 PM [express] GET /api/messages/unread-count 304 in 0ms :: {"count":0}
+12:52:27 PM [express] GET /api/e1xp/notifications 304 in 300ms :: [{"id":"c4c24fcf-6229-4660-ac34-c0e…
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+12:52:57 PM [express] GET /api/messages/unread-count 200 in 1ms :: {"count":0}
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+12:52:57 PM [express] GET /api/messages/unread-count 304 in 1ms :: {"count":0}
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+12:52:58 PM [express] GET /api/messages/unread-count 304 in 1ms :: {"count":0}
+12:53:08 PM [express] GET /api/e1xp/notifications 304 in 293ms :: [{"id":"c4c24fcf-6229-4660-ac34-c0e…
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+12:53:28 PM [express] GET /api/messages/unread-count 200 in 1ms :: {"count":0}
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+12:53:28 PM [express] GET /api/messages/unread-count 200 in 1ms :: {"count":0}
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+12:53:28 PM [express] GET /api/messages/unread-count 200 in 1ms :: {"count":0}
+12:53:49 PM [express] GET /api/e1xp/notifications 304 in 407ms :: [{"id":"c4c24fcf-6229-4660-ac34-c0e…
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+12:53:59 PM [express] GET /api/messages/unread-count 200 in 1ms :: {"count":0}
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+12:53:59 PM [express] GET /api/messages/unread-count 200 in 1ms :: {"count":0}
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+12:54:00 PM [express] GET /api/messages/unread-count 200 in 1ms :: {"count":0}
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+12:54:27 PM [express] GET /api/messages/unread-count 200 in 1ms :: {"count":0}
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+12:54:27 PM [express] GET /api/messages/unread-count 200 in 1ms :: {"count":0}
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+12:54:28 PM [express] GET /api/messages/unread-count 304 in 1ms :: {"count":0}
+[Creator Sync] Syncing creator: {
+  privyId: 'did:privy:cmi09rt1l022ck10c39y36igv',
+  address: null,
+  email: 'discodjclass@atomicmail.io'
+}
+12:54:46 PM [express] GET /api/og-meta// 200 in 13ms
+[Creator Sync] Found existing creator by privyId: 26c160b6-a3f1-4cad-962c-cefa8ccc8402
+12:54:46 PM [express] GET /api/coins 304 in 294ms :: [{"id":"02f44864-01d0-4c98-8f2b-e230db4e3bbc","n…
+[Creator Sync] Updated creator with new address/email
+12:54:46 PM [express] POST /api/creators/sync 200 in 525ms :: {"id":"26c160b6-a3f1-4cad-962c-cefa8ccc…
+12:54:46 PM [express] GET /api/follows/following/email_did:privy:cmi09rt1l022ck10c39y36igv 304 in 483…
+12:54:46 PM [express] GET /api/follows/followers/email_did:privy:cmi09rt1l022ck10c39y36igv 304 in 493…
+12:54:47 PM [express] GET /api/creators/privy/did:privy:cmi09rt1l022ck10c39y36igv 200 in 231ms :: {"i…
+12:54:50 PM [express] GET /api/e1xp/notifications 304 in 383ms :: [{"id":"c4c24fcf-6229-4660-ac34-c0e…
+[E1XP Status] Fetching status for creator: {
+  id: '26c160b6-a3f1-4cad-962c-cefa8ccc8402',
+  address: 'email_did:privy:cmi09rt1l022ck10c39y36igv',
+  privyId: undefined,
+  points: '100'
+}
+[E1XP Status] Resolved userId: 26c160b6-a3f1-4cad-962c-cefa8ccc8402
+[Storage] getLoginStreak for identifier: 26c160b6-a3f1-4cad-962c-cefa8ccc8402
+Login streak fetch error: {
+  code: '42703',
+  details: null,
+  hint: null,
+  message: 'column login_streaks.user_id does not exist'
+}
+[E1XP Status] Failed to get E1XP status: {
+  code: '42703',
+  details: null,
+  hint: null,
+  message: 'column login_streaks.user_id does not exist'
+}
+12:54:51 PM [express] GET /api/e1xp/status 200 in 358ms :: {"points":0,"streak":0,"longestStreak":0,"…
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+12:54:57 PM [express] GET /api/messages/unread-count 304 in 2ms :: {"count":0}
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+12:54:57 PM [express] GET /api/messages/unread-count 200 in 1ms :: {"count":0}
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+12:54:57 PM [express] GET /api/messages/unread-count 304 in 1ms :: {"count":0}
+[E1XP Status] Fetching status for creator: {
+  id: '26c160b6-a3f1-4cad-962c-cefa8ccc8402',
+  address: 'email_did:privy:cmi09rt1l022ck10c39y36igv',
+  privyId: undefined,
+  points: '100'
+}
+[E1XP Status] Resolved userId: 26c160b6-a3f1-4cad-962c-cefa8ccc8402
+[Storage] getLoginStreak for identifier: 26c160b6-a3f1-4cad-962c-cefa8ccc8402
+Login streak fetch error: {
+  code: '42703',
+  details: null,
+  hint: null,
+  message: 'column login_streaks.user_id does not exist'
+}
+[E1XP Status] Failed to get E1XP status: {
+  code: '42703',
+  details: null,
+  hint: null,
+  message: 'column login_streaks.user_id does not exist'
+}
+12:54:58 PM [express] GET /api/e1xp/status 304 in 342ms :: {"points":0,"streak":0,"longestStreak":0,"…
+12:55:00 PM [express] GET /api/e1xp/notifications 304 in 339ms :: [{"id":"c4c24fcf-6229-4660-ac34-c0e…
+[E1XP Status] Fetching status for creator: {
+  id: '26c160b6-a3f1-4cad-962c-cefa8ccc8402',
+  address: 'email_did:privy:cmi09rt1l022ck10c39y36igv',
+  privyId: undefined,
+  points: '100'
+}
+[E1XP Status] Resolved userId: 26c160b6-a3f1-4cad-962c-cefa8ccc8402
+[Storage] getLoginStreak for identifier: 26c160b6-a3f1-4cad-962c-cefa8ccc8402
+Login streak fetch error: {
+  code: '42703',
+  details: null,
+  hint: null,
+  message: 'column login_streaks.user_id does not exist'
+}
+[E1XP Status] Failed to get E1XP status: {
+  code: '42703',
+  details: null,
+  hint: null,
+  message: 'column login_streaks.user_id does not exist'
+}
+12:55:04 PM [express] GET /api/e1xp/status 304 in 313ms :: {"points":0,"streak":0,"longestStreak":0,"…
+[E1XP Status] Fetching status for creator: {
+  id: '26c160b6-a3f1-4cad-962c-cefa8ccc8402',
+  address: 'email_did:privy:cmi09rt1l022ck10c39y36igv',
+  privyId: undefined,
+  points: '100'
+}
+[E1XP Status] Resolved userId: 26c160b6-a3f1-4cad-962c-cefa8ccc8402
+[Storage] getLoginStreak for identifier: 26c160b6-a3f1-4cad-962c-cefa8ccc8402
+Login streak fetch error: {
+  code: '42703',
+  details: null,
+  hint: null,
+  message: 'column login_streaks.user_id does not exist'
+}
+[E1XP Status] Failed to get E1XP status: {
+  code: '42703',
+  details: null,
+  hint: null,
+  message: 'column login_streaks.user_id does not exist'
+}
+12:55:10 PM [express] GET /api/e1xp/status 304 in 315ms :: {"points":0,"streak":0,"longestStreak":0,"…
+12:55:13 PM [express] GET /api/e1xp/notifications 304 in 268ms :: [{"id":"c4c24fcf-6229-4660-ac34-c0e…
+[E1XP Status] Fetching status for creator: {
+  id: '26c160b6-a3f1-4cad-962c-cefa8ccc8402',
+  address: 'email_did:privy:cmi09rt1l022ck10c39y36igv',
+  privyId: undefined,
+  points: '100'
+}
+[E1XP Status] Resolved userId: 26c160b6-a3f1-4cad-962c-cefa8ccc8402
+[Storage] getLoginStreak for identifier: 26c160b6-a3f1-4cad-962c-cefa8ccc8402
+Login streak fetch error: {
+  code: '42703',
+  details: null,
+  hint: null,
+  message: 'column login_streaks.user_id does not exist'
+}
+[E1XP Status] Failed to get E1XP status: {
+  code: '42703',
+  details: null,
+  hint: null,
+  message: 'column login_streaks.user_id does not exist'
+}
+12:55:15 PM [express] GET /api/e1xp/status 304 in 254ms :: {"points":0,"streak":0,"longestStreak":0,"…
+[E1XP Status] Fetching status for creator: {
+  id: '26c160b6-a3f1-4cad-962c-cefa8ccc8402',
+  address: 'email_did:privy:cmi09rt1l022ck10c39y36igv',
+  privyId: undefined,
+  points: '100'
+}
+[E1XP Status] Resolved userId: 26c160b6-a3f1-4cad-962c-cefa8ccc8402
+[Storage] getLoginStreak for identifier: 26c160b6-a3f1-4cad-962c-cefa8ccc8402
+Login streak fetch error: {
+  code: '42703',
+  details: null,
+  hint: null,
+  message: 'column login_streaks.user_id does not exist'
+}
+[E1XP Status] Failed to get E1XP status: {
+  code: '42703',
+  details: null,
+  hint: null,
+  message: 'column login_streaks.user_id does not exist'
+}
+12:55:21 PM [express] GET /api/e1xp/status 304 in 277ms :: {"points":0,"streak":0,"longestStreak":0,"…
+12:55:24 PM [express] GET /api/projects/featured 200 in 3ms
+12:55:24 PM [express] GET /api/coins/pinned 200 in 148ms :: [{"id":"28c08507-df65-4f31-970e-d1b99e2a9…
+12:55:24 PM [express] GET /api/e1xp/notifications 304 in 258ms :: [{"id":"c4c24fcf-6229-4660-ac34-c0e…
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+12:55:27 PM [express] GET /api/messages/unread-count 304 in 2ms :: {"count":0}
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+12:55:27 PM [express] GET /api/messages/unread-count 200 in 0ms :: {"count":0}
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+12:55:27 PM [express] GET /api/messages/unread-count 304 in 4ms :: {"count":0}
+12:55:34 PM [express] GET /api/e1xp/notifications 304 in 322ms :: [{"id":"c4c24fcf-6229-4660-ac34-c0e…
+12:55:39 PM [express] GET /api/creators/address/0x632cdcb65e411c28a92c28ff7e6f18cf00a4fcf7 404 in 116…
+12:55:45 PM [express] GET /api/e1xp/notifications 304 in 256ms :: [{"id":"c4c24fcf-6229-4660-ac34-c0e…
+12:55:55 PM [express] GET /api/creators/address/0x7023fd653adbb1f076042366637137f675012378 404 in 155…
+12:55:56 PM [express] GET /api/e1xp/notifications 304 in 267ms :: [{"id":"c4c24fcf-6229-4660-ac34-c0e…
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+12:55:57 PM [express] GET /api/messages/unread-count 200 in 2ms :: {"count":0}
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+12:55:57 PM [express] GET /api/messages/unread-count 304 in 0ms :: {"count":0}
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+12:55:57 PM [express] GET /api/messages/unread-count 304 in 2ms :: {"count":0}
+12:56:07 PM [express] GET /api/e1xp/notifications 304 in 283ms :: [{"id":"c4c24fcf-6229-4660-ac34-c0e…
+[Creator Sync] Syncing creator: {
+  privyId: 'did:privy:cmi09rt1l022ck10c39y36igv',
+  address: null,
+  email: 'discodjclass@atomicmail.io'
+}
+12:56:11 PM [express] GET /api/og-meta// 200 in 2ms
+[Creator Sync] Found existing creator by privyId: 26c160b6-a3f1-4cad-962c-cefa8ccc8402
+[Creator Sync] Updated creator with new address/email
+12:56:11 PM [express] POST /api/creators/sync 200 in 289ms :: {"id":"26c160b6-a3f1-4cad-962c-cefa8ccc…
+12:56:11 PM [express] GET /api/creators/privy/did:privy:cmi09rt1l022ck10c39y36igv 200 in 133ms :: {"i…
+12:56:14 PM [express] GET /api/creators/[object%20Object] 200 in 6ms
+12:56:14 PM [express] GET /api/zora/coins/new 200 in 482ms :: {"coins":[{"__typename":"GraphQLZora20V…
+12:56:14 PM [express] GET /api/zora/coins/top-gainers 200 in 899ms :: {"coins":[{"__typename":"GraphQ…
+12:56:17 PM [express] GET /api/e1xp/notifications 304 in 285ms :: [{"id":"c4c24fcf-6229-4660-ac34-c0e…
+✅ User did:privy:cmi09rt1l022ck10c39y36igv disconnected
+12:56:50 PM [express] GET /api/creators/[object%20Object] 200 in 4ms
+12:56:51 PM [express] GET /api/zora/coins/new 200 in 274ms :: {"coins":[{"__typename":"GraphQLZora20V…
+12:56:51 PM [express] GET /api/zora/coins/top-volume 200 in 455ms :: {"coins":[{"__typename":"GraphQL…
+12:56:51 PM [express] GET /api/zora/coins/top-gainers 200 in 917ms :: {"coins":[{"__typename":"GraphQ…
+[Creator Sync] Syncing creator: {
+  privyId: 'did:privy:cmi09rt1l022ck10c39y36igv',
+  address: null,
+  email: 'discodjclass@atomicmail.io'
+}
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+12:56:53 PM [express] GET /api/messages/unread-count 200 in 2ms :: {"count":0}
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+12:56:53 PM [express] GET /api/messages/unread-count 304 in 1ms :: {"count":0}
+12:56:53 PM [express] GET /api/creators/privy/did:privy:cmi09rt1l022ck10c39y36igv 304 in 165ms :: {"i…
+[Creator Sync] Found existing creator by privyId: 26c160b6-a3f1-4cad-962c-cefa8ccc8402
+[E1XP Status] Fetching status for creator: {
+  id: '26c160b6-a3f1-4cad-962c-cefa8ccc8402',
+  address: 'email_did:privy:cmi09rt1l022ck10c39y36igv',
+  privyId: undefined,
+  points: '100'
+}
+[E1XP Status] Resolved userId: 26c160b6-a3f1-4cad-962c-cefa8ccc8402
+[Storage] getLoginStreak for identifier: 26c160b6-a3f1-4cad-962c-cefa8ccc8402
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+12:56:53 PM [express] GET /api/messages/unread-count 304 in 0ms :: {"count":0}
+[Creator Sync] Updated creator with new address/email
+12:56:54 PM [express] POST /api/creators/sync 200 in 294ms :: {"id":"26c160b6-a3f1-4cad-962c-cefa8ccc…
+12:56:54 PM [express] GET /api/e1xp/notifications 304 in 306ms :: [{"id":"c4c24fcf-6229-4660-ac34-c0e…
+Login streak fetch error: {
+  code: '42703',
+  details: null,
+  hint: null,
+  message: 'column login_streaks.user_id does not exist'
+}
+[E1XP Status] Failed to get E1XP status: {
+  code: '42703',
+  details: null,
+  hint: null,
+  message: 'column login_streaks.user_id does not exist'
+}
+12:56:54 PM [express] GET /api/e1xp/status 200 in 320ms :: {"points":0,"streak":0,"longestStreak":0,"…
+✅ Socket connected: jGm2HZFB44DnF_YHAAAL
+Login streak check-in error: {
+  code: '42703',
+  details: null,
+  hint: null,
+  message: 'column login_streaks.user_id does not exist'
+}
+12:56:54 PM [express] POST /api/login-streak/check-in 500 in 280ms :: {"error":"Failed to check in"}
+✅ Socket connected: 7UeLm4c7lHotjifLAAAN
+✅ Socket connected: OM9-rex_QHTNW6XzAAAP
+✅ User did:privy:cmi09rt1l022ck10c39y36igv authenticated with socket OM9-rex_QHTNW6XzAAAP
+✅ User did:privy:cmi09rt1l022ck10c39y36igv authenticated with socket OM9-rex_QHTNW6XzAAAP
+✅ User did:privy:cmi09rt1l022ck10c39y36igv authenticated with socket OM9-rex_QHTNW6XzAAAP
+  ↳ Also joined room: email_did:privy:cmi09rt1l022ck10c39y36igv
+  ↳ Also joined room: 26c160b6-a3f1-4cad-962c-cefa8ccc8402
+  ↳ Also joined room: email_undefined
+  ↳ Also joined room: email_did:privy:cmi09rt1l022ck10c39y36igv
+  ↳ Also joined room: 26c160b6-a3f1-4cad-962c-cefa8ccc8402
+  ↳ Also joined room: email_undefined
+  ↳ Also joined room: email_did:privy:cmi09rt1l022ck10c39y36igv
+  ↳ Also joined room: 26c160b6-a3f1-4cad-962c-cefa8ccc8402
+  ↳ Also joined room: email_undefined
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+12:57:24 PM [express] GET /api/messages/unread-count 200 in 2ms :: {"count":0}
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+12:57:24 PM [express] GET /api/messages/unread-count 304 in 1ms :: {"count":0}
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+12:57:24 PM [express] GET /api/messages/unread-count 304 in 1ms :: {"count":0}
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+12:57:54 PM [express] GET /api/messages/unread-count 200 in 2ms :: {"count":0}
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+12:57:54 PM [express] GET /api/messages/unread-count 200 in 1ms :: {"count":0}
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+12:57:55 PM [express] GET /api/messages/unread-count 200 in 3ms :: {"count":0}
+12:58:15 PM [express] GET /api/e1xp/notifications 304 in 396ms :: [{"id":"c4c24fcf-6229-4660-ac34-c0e…
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+12:58:25 PM [express] GET /api/messages/unread-count 200 in 1ms :: {"count":0}
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+12:58:25 PM [express] GET /api/messages/unread-count 200 in 1ms :: {"count":0}
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+12:58:25 PM [express] GET /api/messages/unread-count 200 in 1ms :: {"count":0}
+12:58:26 PM [express] GET /api/e1xp/notifications 304 in 292ms :: [{"id":"c4c24fcf-6229-4660-ac34-c0e…
+12:58:37 PM [express] GET /api/e1xp/notifications 304 in 291ms :: [{"id":"c4c24fcf-6229-4660-ac34-c0e…
+12:58:48 PM [express] GET /api/e1xp/notifications 304 in 350ms :: [{"id":"c4c24fcf-6229-4660-ac34-c0e…
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+12:58:53 PM [express] GET /api/messages/unread-count 200 in 1ms :: {"count":0}
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+12:58:53 PM [express] GET /api/messages/unread-count 200 in 0ms :: {"count":0}
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+12:58:54 PM [express] GET /api/messages/unread-count 304 in 0ms :: {"count":0}
+12:59:12 PM [express] GET /api/e1xp/notifications 304 in 295ms :: [{"id":"c4c24fcf-6229-4660-ac34-c0e…
+Sending upload response: {
+  ipfsHash: 'QmTxs82rMkAMjF7mAGCqUowxCX5KFd2e6LSqZ52tDJF21b',
+  url: 'https://gateway.pinata.cloud/ipfs/QmTxs82rMkAMjF7mAGCqUowxCX5KFd2e6LSqZ52tDJF21b',
+  uploadData: {
+    url: 'https://gateway.pinata.cloud/ipfs/QmTxs82rMkAMjF7mAGCqUowxCX5KFd2e6LSqZ52tDJF21b',
+    title: 'tryme1',
+    description: '',
+    image: 'https://gateway.pinata.cloud/ipfs/QmTxs82rMkAMjF7mAGCqUowxCX5KFd2e6LSqZ52tDJF21b',
+    animation_url: undefined,
+    author: '',
+    publishDate: '2025-11-15T12:59:13.618Z',
+    content: '',
+    platform: 'upload',
+    type: 'image'
+  }
+}
+12:59:13 PM [express] POST /api/upload 200 in 978ms :: {"success":true,"ipfsHash":"QmTxs82rMkAMjF7mAG…
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+12:59:23 PM [express] GET /api/messages/unread-count 304 in 1ms :: {"count":0}
+12:59:23 PM [express] GET /api/e1xp/notifications 200 in 333ms :: [{"id":"c4c24fcf-6229-4660-ac34-c0e…
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+12:59:23 PM [express] GET /api/messages/unread-count 200 in 0ms :: {"count":0}
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+12:59:23 PM [express] GET /api/messages/unread-count 304 in 1ms :: {"count":0}
+12:59:34 PM [express] GET /api/e1xp/notifications 304 in 328ms :: [{"id":"c4c24fcf-6229-4660-ac34-c0e…
+12:59:45 PM [express] GET /api/e1xp/notifications 304 in 311ms :: [{"id":"c4c24fcf-6229-4660-ac34-c0e…
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+12:59:54 PM [express] GET /api/messages/unread-count 304 in 1ms :: {"count":0}
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+12:59:54 PM [express] GET /api/messages/unread-count 200 in 1ms :: {"count":0}
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+12:59:54 PM [express] GET /api/messages/unread-count 304 in 1ms :: {"count":0}
+12:59:56 PM [express] GET /api/e1xp/notifications 200 in 308ms :: [{"id":"c4c24fcf-6229-4660-ac34-c0e…
+🔄 [CRON] Running scheduled activity tracker sync...
+📊 [CRON] Found 6 unrecorded coins to sync
+❌ Activity tracker address not configured. Set VITE_ACTIVITY_TRACKER_ADDRESS environment variable.
+❌ [CRON] Failed to record coins on activity tracker
+1:00:08 PM [express] GET /api/e1xp/notifications 304 in 288ms :: [{"id":"c4c24fcf-6229-4660-ac34-c0e…
+1:00:23 PM [express] GET /api/e1xp/notifications 304 in 296ms :: [{"id":"c4c24fcf-6229-4660-ac34-c0e…
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+1:00:23 PM [express] GET /api/messages/unread-count 200 in 1ms :: {"count":0}
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+1:00:23 PM [express] GET /api/messages/unread-count 304 in 0ms :: {"count":0}
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+1:00:23 PM [express] GET /api/messages/unread-count 304 in 1ms :: {"count":0}
+1:00:34 PM [express] GET /api/e1xp/notifications 200 in 275ms :: [{"id":"c4c24fcf-6229-4660-ac34-c0e…
+1:00:45 PM [express] GET /api/e1xp/notifications 304 in 280ms :: [{"id":"c4c24fcf-6229-4660-ac34-c0e…
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+1:00:54 PM [express] GET /api/messages/unread-count 304 in 5ms :: {"count":0}
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+1:00:54 PM [express] GET /api/messages/unread-count 200 in 1ms :: {"count":0}
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+1:00:54 PM [express] GET /api/messages/unread-count 304 in 1ms :: {"count":0}
+1:00:55 PM [express] GET /api/e1xp/notifications 304 in 286ms :: [{"id":"c4c24fcf-6229-4660-ac34-c0e…
+1:01:06 PM [express] GET /api/e1xp/notifications 304 in 305ms :: [{"id":"c4c24fcf-6229-4660-ac34-c0e…
+1:01:17 PM [express] GET /api/e1xp/notifications 304 in 294ms :: [{"id":"c4c24fcf-6229-4660-ac34-c0e…
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+1:01:23 PM [express] GET /api/messages/unread-count 200 in 1ms :: {"count":0}
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+1:01:23 PM [express] GET /api/messages/unread-count 200 in 0ms :: {"count":0}
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+1:01:23 PM [express] GET /api/messages/unread-count 304 in 2ms :: {"count":0}
+1:01:29 PM [express] GET /api/e1xp/notifications 304 in 279ms :: [{"id":"c4c24fcf-6229-4660-ac34-c0e…
+1:01:40 PM [express] GET /api/e1xp/notifications 200 in 319ms :: [{"id":"c4c24fcf-6229-4660-ac34-c0e…
+1:01:51 PM [express] GET /api/e1xp/notifications 304 in 335ms :: [{"id":"c4c24fcf-6229-4660-ac34-c0e…
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+1:01:56 PM [express] GET /api/messages/unread-count 304 in 1ms :: {"count":0}
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+1:01:56 PM [express] GET /api/messages/unread-count 200 in 0ms :: {"count":0}
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+1:01:56 PM [express] GET /api/messages/unread-count 304 in 1ms :: {"count":0}
+1:02:03 PM [express] GET /api/e1xp/notifications 304 in 283ms :: [{"id":"c4c24fcf-6229-4660-ac34-c0e…
+✅ User did:privy:cmi09rt1l022ck10c39y36igv disconnected
+✅ Socket connected: 4W1fOEf21rGcMPmsAAAR
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+1:02:45 PM [express] GET /api/messages/unread-count 304 in 0ms :: {"count":0}
+✅ Socket connected: kYx64JOc8bhVlIKlAAAT
+✅ User did:privy:cmi09rt1l022ck10c39y36igv authenticated with socket kYx64JOc8bhVlIKlAAAT
+✅ User did:privy:cmi09rt1l022ck10c39y36igv authenticated with socket kYx64JOc8bhVlIKlAAAT
+  ↳ Also joined room: email_did:privy:cmi09rt1l022ck10c39y36igv
+  ↳ Also joined room: 26c160b6-a3f1-4cad-962c-cefa8ccc8402
+  ↳ Also joined room: email_undefined
+  ↳ Also joined room: email_did:privy:cmi09rt1l022ck10c39y36igv
+  ↳ Also joined room: 26c160b6-a3f1-4cad-962c-cefa8ccc8402
+  ↳ Also joined room: email_undefined
+✅ Socket connected: PKOfCT9WEXMFDo9AAAAV
+✅ User did:privy:cmi09rt1l022ck10c39y36igv authenticated with socket kYx64JOc8bhVlIKlAAAT
+  ↳ Also joined room: email_did:privy:cmi09rt1l022ck10c39y36igv
+  ↳ Also joined room: 26c160b6-a3f1-4cad-962c-cefa8ccc8402
+  ↳ Also joined room: email_undefined
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+1:03:05 PM [express] GET /api/messages/unread-count 200 in 1ms :: {"count":0}
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+1:03:05 PM [express] GET /api/messages/unread-count 200 in 0ms :: {"count":0}
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+1:03:06 PM [express] GET /api/messages/unread-count 304 in 1ms :: {"count":0}
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+1:04:06 PM [express] GET /api/messages/unread-count 200 in 0ms :: {"count":0}
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+1:04:06 PM [express] GET /api/messages/unread-count 304 in 0ms :: {"count":0}
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+1:04:07 PM [express] GET /api/messages/unread-count 304 in 1ms :: {"count":0}
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+1:05:05 PM [express] GET /api/messages/unread-count 200 in 1ms :: {"count":0}
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+1:05:05 PM [express] GET /api/messages/unread-count 200 in 0ms :: {"count":0}
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+1:05:05 PM [express] GET /api/messages/unread-count 200 in 0ms :: {"count":0}
+✅ User did:privy:cmi09rt1l022ck10c39y36igv disconnected
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+1:15:53 PM [express] GET /api/messages/unread-count 200 in 1ms :: {"count":0}
+✅ Socket connected: iruFhtmRZNSKHKzBAAAX
+✅ Socket connected: 3nPwQ_MHMdxDXxQUAAAZ
+✅ User did:privy:cmi09rt1l022ck10c39y36igv authenticated with socket 3nPwQ_MHMdxDXxQUAAAZ
+✅ User did:privy:cmi09rt1l022ck10c39y36igv authenticated with socket 3nPwQ_MHMdxDXxQUAAAZ
+  ↳ Also joined room: email_did:privy:cmi09rt1l022ck10c39y36igv
+  ↳ Also joined room: 26c160b6-a3f1-4cad-962c-cefa8ccc8402
+  ↳ Also joined room: email_undefined
+  ↳ Also joined room: email_did:privy:cmi09rt1l022ck10c39y36igv
+  ↳ Also joined room: 26c160b6-a3f1-4cad-962c-cefa8ccc8402
+  ↳ Also joined room: email_undefined
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+1:16:03 PM [express] GET /api/messages/unread-count 200 in 1ms :: {"count":0}
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+1:16:03 PM [express] GET /api/messages/unread-count 200 in 1ms :: {"count":0}
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+1:16:03 PM [express] GET /api/messages/unread-count 304 in 1ms :: {"count":0}
+✅ Socket connected: eiYiIZ1lUkZTr30eAAAb
+✅ User did:privy:cmi09rt1l022ck10c39y36igv authenticated with socket 3nPwQ_MHMdxDXxQUAAAZ
+  ↳ Also joined room: email_did:privy:cmi09rt1l022ck10c39y36igv
+  ↳ Also joined room: 26c160b6-a3f1-4cad-962c-cefa8ccc8402
+  ↳ Also joined room: email_undefined
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+1:17:03 PM [express] GET /api/messages/unread-count 200 in 1ms :: {"count":0}
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+1:17:03 PM [express] GET /api/messages/unread-count 304 in 0ms :: {"count":0}
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+1:17:04 PM [express] GET /api/messages/unread-count 304 in 1ms :: {"count":0}
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+1:18:03 PM [express] GET /api/messages/unread-count 200 in 1ms :: {"count":0}
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+1:18:03 PM [express] GET /api/messages/unread-count 200 in 1ms :: {"count":0}
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+1:18:03 PM [express] GET /api/messages/unread-count 200 in 1ms :: {"count":0}
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+1:19:03 PM [express] GET /api/messages/unread-count 200 in 2ms :: {"count":0}
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+1:19:03 PM [express] GET /api/messages/unread-count 200 in 1ms :: {"count":0}
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+1:19:03 PM [express] GET /api/messages/unread-count 200 in 2ms :: {"count":0}
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+1:20:03 PM [express] GET /api/messages/unread-count 200 in 1ms :: {"count":0}
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+1:20:03 PM [express] GET /api/messages/unread-count 200 in 0ms :: {"count":0}
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+1:20:03 PM [express] GET /api/messages/unread-count 200 in 2ms :: {"count":0}
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+1:21:03 PM [express] GET /api/messages/unread-count 200 in 1ms :: {"count":0}
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+1:21:03 PM [express] GET /api/messages/unread-count 200 in 1ms :: {"count":0}
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+1:21:03 PM [express] GET /api/messages/unread-count 200 in 0ms :: {"count":0}
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+1:22:03 PM [express] GET /api/messages/unread-count 200 in 1ms :: {"count":0}
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+1:22:03 PM [express] GET /api/messages/unread-count 200 in 4ms :: {"count":0}
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+1:22:03 PM [express] GET /api/messages/unread-count 200 in 1ms :: {"count":0}
+✅ Socket connected: rqfbzeTPCMWdMqulAAAd
+✅ Socket connected: 9KijVEaL7AK7yS9_AAAf
+✅ User did:privy:cmi09rt1l022ck10c39y36igv authenticated with socket 9KijVEaL7AK7yS9_AAAf
+  ↳ Also joined room: email_did:privy:cmi09rt1l022ck10c39y36igv
+  ↳ Also joined room: 26c160b6-a3f1-4cad-962c-cefa8ccc8402
+  ↳ Also joined room: email_undefined
+✅ Socket connected: P__UUn6CRxDz-FvNAAAh
+✅ User did:privy:cmi09rt1l022ck10c39y36igv authenticated with socket 9KijVEaL7AK7yS9_AAAf
+  ↳ Also joined room: email_did:privy:cmi09rt1l022ck10c39y36igv
+  ↳ Also joined room: 26c160b6-a3f1-4cad-962c-cefa8ccc8402
+  ↳ Also joined room: email_undefined
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+1:23:03 PM [express] GET /api/messages/unread-count 200 in 1ms :: {"count":0}
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+1:23:03 PM [express] GET /api/messages/unread-count 200 in 1ms :: {"count":0}
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+1:23:03 PM [express] GET /api/messages/unread-count 304 in 0ms :: {"count":0}
+✅ User did:privy:cmi09rt1l022ck10c39y36igv disconnected
+✅ User did:privy:cmi09rt1l022ck10c39y36igv disconnected
+✅ Socket connected: Fz_7IvJxxUEkemHzAAAj
+✅ Socket connected: YDWM-awiK8N9dVOwAAAl
+✅ User did:privy:cmi09rt1l022ck10c39y36igv authenticated with socket YDWM-awiK8N9dVOwAAAl
+✅ User did:privy:cmi09rt1l022ck10c39y36igv authenticated with socket YDWM-awiK8N9dVOwAAAl
+  ↳ Also joined room: email_did:privy:cmi09rt1l022ck10c39y36igv
+  ↳ Also joined room: 26c160b6-a3f1-4cad-962c-cefa8ccc8402
+  ↳ Also joined room: email_undefined
+  ↳ Also joined room: email_did:privy:cmi09rt1l022ck10c39y36igv
+  ↳ Also joined room: 26c160b6-a3f1-4cad-962c-cefa8ccc8402
+  ↳ Also joined room: email_undefined
+✅ Socket connected: nz8PDjswA8KxNtWeAAAn
+✅ User did:privy:cmi09rt1l022ck10c39y36igv authenticated with socket YDWM-awiK8N9dVOwAAAl
+  ↳ Also joined room: email_did:privy:cmi09rt1l022ck10c39y36igv
+  ↳ Also joined room: 26c160b6-a3f1-4cad-962c-cefa8ccc8402
+  ↳ Also joined room: email_undefined
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+1:24:03 PM [express] GET /api/messages/unread-count 304 in 2ms :: {"count":0}
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+1:24:04 PM [express] GET /api/messages/unread-count 200 in 1ms :: {"count":0}
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+1:24:04 PM [express] GET /api/messages/unread-count 304 in 1ms :: {"count":0}
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+1:25:03 PM [express] GET /api/messages/unread-count 200 in 2ms :: {"count":0}
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+1:25:03 PM [express] GET /api/messages/unread-count 304 in 0ms :: {"count":0}
+[Wallet Auth] GET /api/messages/unread-count {
+  body: undefined,
+  query: undefined,
+  params: undefined,
+  header: undefined,
+  found: false
+}
+1:25:03 PM [express] GET /api/messages/unread-count 304 in 1ms :: {"count":0}
+✅ User did:privy:cmi09rt1l022ck10c39y36igv disconnected
