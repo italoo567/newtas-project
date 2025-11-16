@@ -23,9 +23,9 @@ function AuthHandler({ children }: { children: React.ReactNode }) {
         // Get Privy user ID (primary identifier)
         const privyId = user?.id;
         // Get wallet address if available (wallet login or embedded wallet)
-        const address = user?.wallet?.address || user?.linkedAccounts?.find((acc: any) => acc.type === 'wallet')?.address;
+        const address = user?.wallet?.address || null;
         // Get email if available (email login)
-        const email = user?.email?.address || user?.linkedAccounts?.find((acc: any) => acc.type === 'email')?.address;
+        const email = user?.email?.address || null;
 
         if (!privyId) {
           console.error('No Privy ID found for user');
@@ -57,34 +57,39 @@ function AuthHandler({ children }: { children: React.ReactNode }) {
 
         // Trigger daily login to award welcome bonus (works for both email and wallet users)
         if (privyId) {
-          const response = await fetch('/api/login-streak/check-in', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ 
-              privyId, 
-              address: address || null // address can be null for email users
-            }),
-            credentials: 'include',
-          });
+          try {
+            const response = await fetch('/api/login-streak/check-in', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ 
+                privyId, 
+                address: address || null // address can be null for email users
+              }),
+              credentials: 'include',
+            });
 
-          if (response.ok) {
-            const data = await response.json();
-            if (data.isFirstLogin) {
-              console.log('✅ Welcome bonus awarded!', data);
-              // Show success notification to user
-              const event = new CustomEvent('e1xp-claimed', { 
-                detail: { 
-                  points: data.pointsEarned || 10,
-                  message: 'Welcome to CoinIT! 🎉'
-                }
-              });
-              window.dispatchEvent(event);
-            } else if (data.pointsEarned > 0) {
-              console.log('✅ Daily login bonus!', data);
+            if (response.ok) {
+              const data = await response.json();
+              if (data.isFirstLogin) {
+                console.log('✅ Welcome bonus awarded!', data);
+                // Show success notification to user
+                const event = new CustomEvent('e1xp-claimed', { 
+                  detail: { 
+                    points: data.pointsEarned || 10,
+                    message: 'Welcome to CoinIT! 🎉'
+                  }
+                });
+                window.dispatchEvent(event);
+              } else if (data.pointsEarned > 0) {
+                console.log('✅ Daily login bonus!', data);
+              }
+            } else {
+              console.warn('⚠️ Login streak check-in returned status:', response.status);
+              // Don't block login if this fails - it's non-critical
             }
-          } else {
-            const errorData = await response.json();
-            console.error('❌ Failed to award welcome bonus:', errorData);
+          } catch (streakError) {
+            console.warn('⚠️ Login streak error (non-blocking):', streakError);
+            // Continue anyway - streak bonus is nice-to-have, not critical
           }
         }
 

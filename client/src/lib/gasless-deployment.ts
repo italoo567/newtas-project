@@ -1,5 +1,4 @@
 import type { Address, Hash } from 'viem';
-import type { SmartAccountClient } from 'permissionless';
 import { encodeFunctionData, encodeAbiParameters, parseAbiParameters } from 'viem';
 import { base, baseSepolia } from 'viem/chains';
 // No Zora SDK needed - using direct contract calls
@@ -90,7 +89,7 @@ export interface GaslessCoinDeployResult {
  */
 export async function deployGaslessCoin(
   params: GaslessCoinDeployParams,
-  smartAccountClient: SmartAccountClient
+  smartWalletClient?: any
 ): Promise<GaslessCoinDeployResult> {
   console.log("🪙 [Gasless] Deploying coin with params:", params);
 
@@ -126,7 +125,37 @@ export async function deployGaslessCoin(
     console.log('⚠️  [Gasless] Gas will be sponsored by Base Paymaster');
     console.log(`📡 [Gasless] Deploying on: ${isMainnet ? 'Base Mainnet' : 'Base Sepolia'}`);
 
+    // Create a minimal wallet client that uses Privy's Smart Wallet client with Paymaster support
+    const walletClientFromPrivy = {
+      writeContract: async (request: any) => {
+        if (!smartWalletClient) {
+          throw new Error('Smart Wallet client not available. Please ensure you have a smart wallet created in Privy Dashboard and are using the latest Privy SDK.');
+        }
+
+        console.log('🔐 Sending transaction through Privy Smart Wallet (with Paymaster)...');
+        console.log('📝 Transaction request:', { to: request.address, dataLength: request.data?.length });
+        
+        try {
+          // Use Privy's Smart Wallet client sendTransaction method
+          // This automatically handles Paymaster gas sponsorship
+          const hash = await smartWalletClient.sendTransaction({
+            to: request.address as Address,
+            data: request.data as `0x${string}`,
+            value: BigInt(request.value || '0'),
+            chain: base,
+          });
+          
+          console.log('✅ Transaction sent via Privy Smart Wallet, hash:', hash);
+          return hash as Hash;
+        } catch (txError) {
+          console.error('❌ Smart Wallet transaction failed:', txError);
+          throw txError;
+        }
+      },
+    };
+
     // Deploy the coin using createCoinOnBaseSepolia (handles both networks via localStorage preference)
+    // Note: With Privy's native smart wallet, the transaction will automatically use the smart wallet
     const result = await createCoinOnBaseSepolia(
       {
         creator: smartAccountAddress,
@@ -135,7 +164,7 @@ export async function deployGaslessCoin(
         metadataUri: params.metadataUri,
         platformReferrer: params.platformReferrer,
       },
-      smartAccountClient as any,
+      walletClientFromPrivy,
       publicClient as any
     );
 

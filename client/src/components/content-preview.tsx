@@ -4,7 +4,8 @@ import { useToast } from "@/hooks/use-toast";
 import { apiRequest, queryClient } from "@/lib/queryClient";
 import { uploadToIPFS } from "@/lib/pinata";
 import { Loader2, ExternalLink, Sparkles } from "lucide-react";
-import { usePrivy, useWallets } from "@privy-io/react-auth";
+import { usePrivy } from "@privy-io/react-auth";
+import { useSmartWallets } from "@privy-io/react-auth/smart-wallets";
 import { createWalletClient, custom, createPublicClient, http, type Address } from "viem";
 import { base, baseSepolia } from "viem/chains";
 import { createCoinOnBaseSepolia, generateCoinSymbol } from "@/lib/zora-coins";
@@ -31,21 +32,18 @@ interface ContentPreviewProps {
 export default function ContentPreview({ scrapedData, onCoinCreated }: ContentPreviewProps) {
   const { toast } = useToast();
   const { authenticated, user } = usePrivy();
-  const { wallets } = useWallets();
+  const { client: smartWalletClient } = useSmartWallets();
   const { 
-    smartAccountClient, 
     smartAccountAddress, 
     isLoading: isSmartAccountLoading, 
     smartAccountReady,
     smartAccountStatus,
     error: smartAccountError,
-    initSmartAccount,
     retryWalletCreation
   } = useSmartAccount();
 
-  // Get the actual wallet address from Privy wallets array
-  const privyWallet = wallets[0];
-  const walletAddress = privyWallet?.address as Address | undefined;
+  // Get wallet info from Privy user object
+  const walletAddress = user?.wallet?.address as Address | undefined;
   const privyId = user?.id;
   const email = user?.email?.address;
   const isEmailUser = email && !walletAddress;
@@ -88,20 +86,12 @@ export default function ContentPreview({ scrapedData, onCoinCreated }: ContentPr
         },
       };
 
-      // Ensure smart account is initialized
-      let accountClient = smartAccountClient;
-      let accountAddress = smartAccountAddress;
+      // Ensure smart account is ready
+      let accountAddress = smartAccountAddress || walletAddress || user?.wallet?.address;
 
-      if (!accountClient || !accountAddress) {
-        console.log("⏳ Smart account not ready, initializing...");
-        const result = await initSmartAccount();
-
-        if (!result) {
-          throw new Error("Smart account initialization failed. Please refresh and try again.");
-        }
-
-        accountClient = result.client;
-        accountAddress = result.address;
+      if (!accountAddress) {
+        console.log("⏳ Smart account not ready yet...");
+        throw new Error("Smart account not initialized. Please wait or refresh and try again.");
       }
 
       console.log("📤 Uploading metadata to IPFS...");
@@ -146,7 +136,7 @@ export default function ContentPreview({ scrapedData, onCoinCreated }: ContentPr
           smartAccountAddress: accountAddress,
           platformReferrer: import.meta.env.VITE_ADMIN_REFERRAL_ADDRESS as Address | undefined,
         },
-        accountClient
+        smartWalletClient
       );
 
       console.log("✅ Gasless deployment successful!");
@@ -177,7 +167,7 @@ export default function ContentPreview({ scrapedData, onCoinCreated }: ContentPr
       };
     },
     onSuccess: (data) => {
-      const isGasless = smartAccountClient && smartAccountAddress;
+      const isGasless = smartAccountAddress && smartAccountReady;
       
       // Show immediate toast feedback
       toast({

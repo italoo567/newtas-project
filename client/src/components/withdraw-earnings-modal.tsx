@@ -48,7 +48,7 @@ export default function WithdrawEarningsModal({
 }: WithdrawEarningsModalProps) {
   const { toast } = useToast();
   const { user, authenticated } = usePrivy();
-  const { smartAccountClient, smartAccountAddress } = useSmartAccount();
+  const { smartAccountAddress, smartAccountReady } = useSmartAccount();
   const [recipientAddress, setRecipientAddress] = useState("");
   const [selectedCoinAddress, setSelectedCoinAddress] = useState<string>("");
   const [isWithdrawing, setIsWithdrawing] = useState(false);
@@ -135,43 +135,36 @@ export default function WithdrawEarningsModal({
     try {
       let hash: `0x${string}`;
 
-      // Use smart account client for gasless withdrawal (email users)
-      if (smartAccountClient) {
-        console.log("💰 [Gasless] Initiating gasless withdrawal via smart account...");
-        
-        hash = await smartAccountClient.writeContract({
-          address: selectedCoinAddress as Address,
-          abi: CREATOR_COIN_ABI,
-          functionName: "withdraw",
-          args: [recipientAddress as Address, BigInt(Math.floor(parseFloat(earnings) * 1e18))],
-        });
-
-        console.log("✅ [Gasless] Withdrawal transaction sent (gas sponsored by Base Paymaster)");
+      // Use Privy's smart account for gasless withdrawal when available
+      const isGasless = smartAccountReady && smartAccountAddress;
+      
+      if (isGasless) {
+        console.log("💰 [Gasless] Initiating gasless withdrawal via Privy smart account...");
       } else {
-        // Fallback to regular wallet client for wallet users
-        console.log("💰 [Regular] Initiating withdrawal via external wallet...");
-        
-        const provider = await (window as any).ethereum;
-        if (!provider) {
-          throw new Error("No Ethereum provider found");
-        }
-
-        const { createWalletClient, custom } = await import("viem");
-        const walletClient = createWalletClient({
-          account: userAddress as Address,
-          chain: base,
-          transport: custom(provider),
-        });
-
-        hash = await walletClient.writeContract({
-          address: selectedCoinAddress as Address,
-          abi: CREATOR_COIN_ABI,
-          functionName: "withdraw",
-          args: [recipientAddress as Address, BigInt(Math.floor(parseFloat(earnings) * 1e18))],
-        });
-
-        console.log("✅ [Regular] Withdrawal transaction sent");
+        console.log("💰 [Regular] Initiating withdrawal via Privy embedded wallet...");
       }
+      
+      // Use standard Ethereum provider (Privy handles smart wallet routing internally)
+      const provider = (window as any).ethereum;
+      if (!provider) {
+        throw new Error("No Ethereum provider found");
+      }
+
+      const { createWalletClient, custom } = await import("viem");
+      const walletClient = createWalletClient({
+        account: userAddress as Address,
+        chain: base,
+        transport: custom(provider),
+      });
+
+      hash = await walletClient.writeContract({
+        address: selectedCoinAddress as Address,
+        abi: CREATOR_COIN_ABI,
+        functionName: "withdraw",
+        args: [recipientAddress as Address, BigInt(Math.floor(parseFloat(earnings) * 1e18))],
+      });
+
+      console.log("✅ Withdrawal transaction sent", { hash, gasless: isGasless });
 
       toast({
         title: "Withdrawal Initiated!",
@@ -188,7 +181,7 @@ export default function WithdrawEarningsModal({
 
       toast({
         title: "Withdrawal Successful! 🎉",
-        description: `${parseFloat(earnings).toFixed(6)} ETH sent successfully${smartAccountClient ? ' (gas-free!)' : ''}`,
+        description: `${parseFloat(earnings).toFixed(6)} ETH sent successfully${isGasless ? ' (gas-free!)' : ''}`,
       });
 
       onOpenChange(false);

@@ -27,6 +27,7 @@ import {
 import { ThemeToggle } from "./theme-toggle";
 import { NotificationBell } from "./notification-bell";
 import { UserMenu } from "./user-menu";
+import { WalletStatusBadge } from "./wallet-status-badge";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import { socketClient } from "@/lib/socket-client";
@@ -619,6 +620,7 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
                           Create
                         </Button>
                       </Link>
+                      <WalletStatusBadge />
                       <UserMenu />
                     </>
                   ) : (
@@ -660,6 +662,7 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
                     </Link>
                     <NotificationBell />
                     <ThemeToggle />
+                    <WalletStatusBadge />
                     <UserMenu />
                   </>
                 ) : (
